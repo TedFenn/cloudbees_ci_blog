@@ -18,19 +18,19 @@ pipeline {
             }
         }
         stage ('build') {
-            script {
-                if(build_type == "maven") {
-                    sh """
-                        echo "MOCK: mvn clean dependencies:copy-dependencies package"
-                    """
-                }
-                if else(build_type == "gradle") {
-                    sh """
-                        echo "MOCK: gradle build"
-                    """
-                }
-                else {
-                    echo "Unknown build type"
+            steps {
+                script {
+                    if(build_type == "maven") {
+                        sh """
+                            echo 'MOCK: mvn clean dependencies:copy-dependencies package'
+                        """
+                    } else if(build_type == "gradle") {
+                        sh """
+                            echo 'MOCK: gradle build'
+                        """
+                    } else {
+                        echo "Unknown build type"
+                    }
                 }
             }
         }
