@@ -1,5 +1,8 @@
 @Library('common_shared_blog_lib') _
 
+def build_stage
+def build_type
+
 pipeline {
     agent {
         kubernetes{

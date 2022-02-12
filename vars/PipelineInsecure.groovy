@@ -1,4 +1,7 @@
 def call(Map pipelineParams) {
+    def build_stage
+    def build_type
+    
     pipeline {
         agent {
             kubernetes{
