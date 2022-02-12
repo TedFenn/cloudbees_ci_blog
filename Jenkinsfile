@@ -11,10 +11,12 @@ pipeline {
     }
     stages {
         stage ("initialization") {
-            script {
-                props = readYaml file: 'Jenkinsfile.yaml'
-                build_stage = props['build_stage']
-                build_type = props['build']['type']
+            steps {
+                script {
+                    props = readYaml file: 'Jenkinsfile.yaml'
+                    build_stage = props['build_stage']
+                    build_type = props['build']['type']
+                }
             }
         }
         stage ('build') {

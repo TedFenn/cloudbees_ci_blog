@@ -10,9 +10,11 @@ def call(Map pipelineParams) {
         }
         stages {
             stage ("initialization") {
-                script {
-                    build_stage = pipelineParams.build_stage
-                    build_type = pipelineParams.build_type
+                steps {
+                    script {
+                        build_stage = pipelineParams.build_stage
+                        build_type = pipelineParams.build_type
+                    }
                 }
             }
             stage ('build') {
